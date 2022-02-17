@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    /*display flex*/
+    display: flex;
+    /*ajuste sobre eje principal(row)*/
+    justify-content: space-between;
+    padding: 1%;
+    /*hace que el header se mantenga siempre aunque baje la pagina*/
+    position: fixed;
+    background-color: white;
+    /*Fija el header arriba*/
+    top: 0;
+    /*header siempre al frente de todo contenido*/
+    z-index: 1;
+    /*ancho del 100% de la pantalla*/
+    width: 100%;
+    /*1vh=1% de la altura del viewport*/
+    max-height: 10vh;
+}
+header ul{
+    /*quita las viñetas de las listas*/
+    list-style: none;
+}
+.head-left{
+    /*display flex coloca elem enfrente*/
+    display: flex;
+    /*ancho de la sección*/
+    width: 200px;
+    /*alinea los elementos sobre la columna-->eje secundario*/
+    align-items: center;
+}
+.head-right{
+    /*coloca elementos enfrente*/
+    display: flex;
+    /*ancho de la sección*/
+    width: 200px;
+    /*coloca espacio entre los elementos de la lista*/
+    justify-content: space-around;
+    /*alinea los elementos sobre la columna -->eje secundario*/
+    align-items: center;
+    /*color de los íconos*/
+    color: gray;
+}
+.search-bar{
+    /*crece el elemento dos veces de los demás*/
+    flex-grow: 2;
+    display: flex;
+    /*padding acorde al contenedor*/
+    padding: 0.5rem;
+    /*vuelve la barra de búsqueda bordes redondeados*/
+    border-radius: 24px;
+    /*alinea elementos conforme al eje secundario*/
+    align-items: center;
+    /*da fondo de contenido de color gris*/
+    background: #efefef;
+}
+
+/*hacer borde azul de la barra de búsqueda*/
+.search-bar:focus-within{
+    box-shadow: rgba(38, 204, 255, 0.5) 0px 0px 0px 4px;
+}
+
+/*hace que desaparezca el icono de lupa al dar click sobre la barra de búsqueda*/
+.search-bar:focus-within .search-icon{
+    display: none;
+}
+/*desaparece la línea negra de la caja de entrada de texto*/
+input:focus{
+    outline: none;
+}
+/*tamaño*/
+.search-input{
+    /*ancho del 95% del contenedor del elemento*/
+    width: 95%;
+    /*ocupa 2 veces el tamaño*/
+    flex-grow: 2;
+    /*alto del 100%*/
+    height: 100%;
+    /*color de fondo de la barra*/
+    background: #efefef;
+    /*tamaño de fuente*/
+    font-size: 15px;
+    /*color de fuente*/
+    color: gray;
+    /*quita el borde de la barra*/
+    border: none;
+}
+.search-icon{
+    color: gray;
+    margin: 0 0.5rem;
+}
+.btn{
+    /*quita color de fondo y borde de los botones inicio y hoy*/
+    background: none;
+    border: none;
+}
+.btn-inicio{
+    /*hacer fondo de color negro y fuente blanca*/
+    background-color: black;
+    color: white;
+    /*rem tamaño de letra del elemento raiz*/
+    /*em tamaño de letra del elemento padre*/
+    /*ambas unidades de longitud*/
+    padding: 1rem;
+    /*borde redondeado*/
+    border-radius: 20px;
+    /*tamaño de fuente*/
+    font-size: 15px;
+    /*ancho de letra*/
+    font-weight: 1000;
+}
+.btn-hoy{
+    /*padding del boton*/
+    padding: 1rem;
+    /*borde redondeado*/
+    border-radius: 20px;
+    /*tamaño de fuente*/
+    font-size: 15px;
+    /*ancho de fuente*/
+    font-weight: 1000;
+}
+/*reaccion del boton al colocar el cursor sobre el*/
+.btn-hoy:hover{
+    background-color: #ddd;
+}
+.div-logo{
+    /*separación del botón del icono pinterest*/
+    padding: 0.7rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+.div-logo:hover{
+    background-color: #ddd;
+}
+.div-logo img{
+    width: 70%;
+}
+/* */
+.div-icon{
+    /*formato de los iconos*/
+    padding: 0.7rem 0.7rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    /*al posicionar el cursos sobre ellos se vuelve puntero*/
+    cursor: pointer;
+}
+.div-icon:hover{
+    background-color: #ddd;
+}
+
+/*formato botones fijos lado derecho*/
+.btn-fix{
+    /*hacer posicion fija*/
+    position: fixed;
+    /*posiciones en el vwprt*/
+    bottom: 0;
+    right: 0;
+    /*colocar uno tras otro*/
+    display: flex;
+    /*cambiar alineación a columna*/
+    flex-direction: column;
+}
+.btn-fix span{
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+/*dejar el contenido debajo del header*/
+main{
+    margin-top: 11vh;
+}
+.gallery{
+    /*espacios laterales*/
+    padding-left: 2vw;
+    padding-right: 2vw;
+    /*genera las columnas de las imagenes y el ancho de cada una*/
+    columns: 5 250px;
+    /*espacio entre columnas*/
+    column-gap: 0.5rem;
+}
+.gallery img{
+    /*redondeo de las imagenes*/
+    border-radius: 15px;
+    /*agrega espacio debajo de cada imagen*/
+    margin-bottom: 2rem;
+}
