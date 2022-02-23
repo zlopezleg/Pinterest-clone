@@ -180,19 +180,173 @@ input:focus{
 /*dejar el contenido debajo del header*/
 main{
     margin-top: 11vh;
+    /*espacios laterales despegados de bordes de viewport*/
+    margin-left: 3vw;
+    margin-right: 3vw;
 }
+
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*/
+/**/
+/**/
+/*estilos para gallería y botones al posicionar el cursos sobre la imagen*/
 .gallery{
-    /*espacios laterales*/
+    /*genera 5 columnas de imagenes*/
+    column-count: 5;
+    /*espacio entre columnas*/
+    column-gap: 1rem;
+    /*padding imagenes*/
+    padding: 0 1vw;
+}
+
+/*formato contenedor de imagen*/
+.main-child{
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 15px;
+}
+/*formato imagenes*/
+.main-child img{
+    width: 100%;
+    border-radius: 15px;
+    height: 100%;
+}
+/*hacer que el cursos cambie a lupa + al posicionar sobre la imagen*/
+.main-child:hover{
+    cursor: zoom-in;
+}
+/*hace que se opaque la imagen al posicionar cursor sobre ella*/
+.main-child:hover .overlay{
+    opacity: 1;
+}
+/*formato cuadros al posicionarse sobre ellos*/
+.overlay{
+    /*borde esquinas*/
+    border-radius: 15px;
+    /*color del que se vuelve*/
+    /*el último dígito otorga la claridad al color escogido*/
+    background: rgba(99, 91, 81, 0.5);
+    width: 100%;
+    height: 100%;
+    /*coloca sobre las imagenes*/
+    position: absolute;
+    /*opacidad*/
+    opacity: 0;
+    /*coloca los elementos uno tras otro*/
+    display: flex;
+    /*cambia el flujo del flex*/
+    flex-direction: column;
+    /*espacio entre ellos*/
+    justify-content: space-between;
+}
+.overlay-arriba, .overlay-abajo{
+    display: flex;
+    /*sobre la columna*/
+    align-items: center;
+    /*coloca los elementos al final (lado derecho)*/
+    justify-content: flex-end;
+    padding: 4%;
+}
+/*formato boton*/
+.overlay-arriba button{
+    /*color de fuente de boton*/
+    color: white;
+    /*borde de boton*/
+    border-radius: 24px;
+    /*color de relleno del botón*/
+    background-color: red;
+    /*quita borde de boton*/
+    border: none;
+    /*hace el botón más ancho y grueso*/
+    padding: 15px 8px;
+}
+/*cambio de color botón guardar*/
+.overlay-arriba button:hover{
+    background-color: rgb(165, 22, 22);
+}
+/*colores y formato de los iconos inferiores*/
+.overlay-abajo span{
+    background-color: #efefef;
+    border-radius: 50%;
+    margin: 0 3%;
+}
+/*cursor puntero botones inferiores*/
+.arrow:hover{
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+    .gallery{
+        columns: 1;
+    }
+    .btn-hoy{
+        display: none;
+    }
+    .search-bar{
+        display: none;
+    }
+    .div-logo, .btn-hoy{
+        display: none;
+    }
+    .btn-inicio{
+        background-color: white;
+        color: black;
+    }
+    .btn-inicio:hover{
+        background-color: gray;
+        color: black;
+    }
+
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .gallery{
+        columns: 2;
+    }
+    .btn-hoy{
+        display: none;
+    }
+    .search-bar{
+        display: none;
+    }
+    .btn-inicio{
+        background-color: white;
+        color: black;
+    }
+}
+@media screen and (min-width:480px) and (max-width:768px){
+    .gallery{
+        columns: 4;
+    }
+}
+
+
+
+
+
+
+
+/* primera versión, sin botones al posicionarse sobre la imagen
+.gallery{
+    /*espacios laterales
     padding-left: 2vw;
     padding-right: 2vw;
-    /*genera las columnas de las imagenes y el ancho de cada una*/
+    /*genera las columnas de las imagenes y el ancho de cada una
     columns: 5 250px;
-    /*espacio entre columnas*/
+    /*espacio entre columnas
     column-gap: 0.5rem;
 }
 .gallery img{
-    /*redondeo de las imagenes*/
+    /*redondeo de las imagenes
     border-radius: 15px;
-    /*agrega espacio debajo de cada imagen*/
+    /*agrega espacio debajo de cada imagen
     margin-bottom: 2rem;
 }
+*/
+
